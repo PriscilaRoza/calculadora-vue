@@ -1,25 +1,25 @@
 <template>
   <div class="calculadora">
     <div class="display">25</div>
-    <div>C</div>
-    <div>+/-</div>
-    <div>%</div>
-    <div>÷</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
-    <div>x</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-    <div>-</div>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>+</div>
-    <div>0</div>
-    <div>.</div>
-    <div>=</div>
+    <div class="botao operadores">C</div>
+    <div  class="botao operadores">+/-</div>
+    <div  class="botao operadores">%</div>
+    <div  class="botao operadores">÷</div>
+    <div  class="botao">7</div>
+    <div  class="botao">8</div>
+    <div  class="botao">9</div>
+    <div  class="botao operadores">x</div>
+    <div  class="botao">4</div>
+    <div  class="botao">5</div>
+    <div  class="botao">6</div>
+    <div  class="botao operadores">-</div>
+    <div  class="botao">1</div>
+    <div  class="botao">2</div>
+    <div  class="botao">3</div>
+    <div class="botao operadores">+</div>
+    <div class="botao zero">0</div>
+    <div  class="botao operadores">.</div>
+    <div  class="botao operadores">=</div>
   </div>
 </template>
 
@@ -41,5 +41,17 @@ export default {};
   background-color: #333;
   opacity: 0.6;
   color: #fff;
+}
+.zero{
+  grid-column: 1 / 3;
+}
+.botao{
+  background-color: #111;
+  opacity: 0.4;
+  color: #fff;
+  border: 2px solid #333;
+}
+.operadores{
+  background-color: rgb(143, 55, 55);
 }
 </style>
