@@ -23,6 +23,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-image: url('https://static8.depositphotos.com/1006106/892/v/600/depositphotos_8921462-stock-illustration-physics.jpg');
+  width: 100vw;
+  height: 100vh;
+  background-repeat:cover;
+  position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 </style>
