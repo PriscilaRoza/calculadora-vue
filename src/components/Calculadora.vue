@@ -1,7 +1,7 @@
 <template>
   <div class="calculadora">
-    <div class="display">25</div>
-    <div class="botao operadores">C</div>
+    <div class="display">{{valorCorrente || '0'}}</div>
+    <div @click="limpar" class="botao operadores">C</div>
     <div  class="botao operadores">%</div>
     <div  class="botao operadores">÷</div>
     <div  class="botao operadores">x</div>
@@ -30,7 +30,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      valorCorrente: '123',
+    };
+  },
+  methods: {
+    limpar() {
+      this.valorCorrente = '';
+    },
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -58,8 +69,6 @@ export default {};
 
 }
 #igual{
-  /* grid-column: 3 / 5; */
-  /* grid-row: 3 / 5; */
   grid-row: span 2;
   padding-top:75px;
   background-color: #FF3764;
