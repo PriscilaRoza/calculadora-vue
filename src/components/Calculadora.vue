@@ -2,27 +2,27 @@
   <div class="calculadora">
     <div class="display">{{valorCorrente || '0'}}</div>
     <div @click="limpar" class="botao operadores">C</div>
-    <div  class="botao operadores">%</div>
+    <div  v-on:click="porcentagem" class="botao operadores">%</div>
     <div  class="botao operadores">÷</div>
     <div  class="botao operadores">x</div>
 
 
-    <div  class="botao">7</div>
-    <div  class="botao">8</div>
-    <div  class="botao">9</div>
+    <div v-on:click="JuntarNumeros('7')"  class="botao">7</div>
+    <div v-on:click="JuntarNumeros('8')"  class="botao">8</div>
+    <div v-on:click="JuntarNumeros('9')"  class="botao">9</div>
     <div  class="botao operadores">-</div>
 
-    <div  class="botao">4</div>
-    <div  class="botao">5</div>
-    <div  class="botao">6</div>
+    <div v-on:click="JuntarNumeros('4')"  class="botao">4</div>
+    <div v-on:click="JuntarNumeros('5')"  class="botao">5</div>
+    <div v-on:click="JuntarNumeros('6')"  class="botao">6</div>
     <div class="botao operadores">+</div>
 
-    <div  class="botao">1</div>
-    <div  class="botao">2</div>
-    <div  class="botao">3</div>
+    <div v-on:click="JuntarNumeros('1')"  class="botao">1</div>
+    <div v-on:click="JuntarNumeros('2')"  class="botao">2</div>
+    <div v-on:click="JuntarNumeros('3')"  class="botao">3</div>
     <div id="igual"  class="botao">=</div>
 
-    <div class="botao">0</div>
+    <div v-on:click="JuntarNumeros('0')" class="botao">0</div>
     <div  class="botao">.</div>
     <div  class="botao"><img src="../assets/icons8-delete-32.png" alt=""></div>
 
@@ -34,11 +34,20 @@ export default {
   data() {
     return {
       valorCorrente: '123',
+      operadorclicado: false,
     };
   },
   methods: {
     limpar() {
       this.valorCorrente = '';
+    },
+    // método responsável por guardar os numeros no visor
+    JuntarNumeros(numero) {
+      if (this.operadorclicado) {
+        this.valorCorrente = '';
+        this.operadorclicado = false;
+      }
+      this.valorCorrente = `${this.valorCorrente}${numero}`;
     },
   },
 };
