@@ -1,6 +1,6 @@
 # calculadora-vue
 
-> calculadora feita com vue
+> calculadora feita com vue, [segui o protótipo desse UI](https://dribbble.com/shots/4510464-Daily-UI-challenge-004-Calculator?utm_source=Clipboard_Shot&utm_campaign=ymera&utm_content=Daily%20UI%20challenge%20%23004%20%E2%80%94%20Calculator&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=ymera&utm_content=Daily%20UI%20challenge%20%23004%20%E2%80%94%20Calculator&utm_medium=Social_Share)
 
 ## Build Setup
 
