@@ -1,8 +1,8 @@
 <template>
   <div class="calculadora">
     <div class="display">{{valorCorrente || '0'}}</div>
-    <div @click="limpar" class="botao operadores">C</div>
-    <div  v-on:click="porcentagem" class="botao operadores">%</div>
+    <div v-on:click="limpar" class="botao operadores">C</div>
+    <div class="botao operadores">%</div>
     <div  class="botao operadores">÷</div>
     <div  class="botao operadores">x</div>
 
@@ -23,7 +23,7 @@
     <div id="igual"  class="botao">=</div>
 
     <div v-on:click="JuntarNumeros('0')" class="botao">0</div>
-    <div  class="botao">.</div>
+    <div v-on:click="ponto"  class="botao">.</div>
     <div  class="botao"><img src="../assets/icons8-delete-32.png" alt=""></div>
 
   </div>
@@ -33,21 +33,27 @@
 export default {
   data() {
     return {
-      valorCorrente: '123',
-      operadorclicado: false,
+      valorCorrente: '',
+      numeroAnterior: null,
+      operador: null,
+      operadorClicado: false,
     };
   },
   methods: {
     limpar() {
       this.valorCorrente = '';
     },
-    // método responsável por guardar os numeros no visor
     JuntarNumeros(numero) {
-      if (this.operadorclicado) {
+      if (this.operadorClicado) {
         this.valorCorrente = '';
-        this.operadorclicado = false;
+        this.operadorClicado = false;
       }
       this.valorCorrente = `${this.valorCorrente}${numero}`;
+    },
+    ponto() {
+      if (this.valorCorrente.indexOf('.') === -1) {
+        this.JuntarNumeros('.');
+      }
     },
   },
 };
