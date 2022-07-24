@@ -2,7 +2,7 @@
   <div class="calculadora">
     <div class="display">{{valorCorrente || '0'}}</div>
     <div v-on:click="limpar" class="botao operadores">C</div>
-    <div class="botao operadores">%</div>
+    <div v-on:click="porcentagem" class="botao operadores">%</div>
     <div  class="botao operadores">÷</div>
     <div  class="botao operadores">x</div>
 
@@ -54,6 +54,9 @@ export default {
       if (this.valorCorrente.indexOf('.') === -1) {
         this.JuntarNumeros('.');
       }
+    },
+    porcentagem() {
+      this.valorCorrente = `${parseFloat(this.valorCorrente) / 100}`;
     },
   },
 };
