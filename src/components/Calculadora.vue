@@ -3,24 +3,24 @@
     <div class="display">{{valorCorrente || '0'}}</div>
     <div v-on:click="limpar" class="botao operadores">C</div>
     <div v-on:click="porcentagem" class="botao operadores">%</div>
-    <div  class="botao operadores">÷</div>
-    <div  class="botao operadores">x</div>
+    <div v-on:click="divisao"  class="botao operadores">÷</div>
+    <div v-on:click="multiplicacao"  class="botao operadores">x</div>
 
 
     <div v-on:click="JuntarNumeros('7')"  class="botao">7</div>
     <div v-on:click="JuntarNumeros('8')"  class="botao">8</div>
     <div v-on:click="JuntarNumeros('9')"  class="botao">9</div>
-    <div  class="botao operadores">-</div>
+    <div v-on:click="subtracao"  class="botao operadores">-</div>
 
     <div v-on:click="JuntarNumeros('4')"  class="botao">4</div>
     <div v-on:click="JuntarNumeros('5')"  class="botao">5</div>
     <div v-on:click="JuntarNumeros('6')"  class="botao">6</div>
-    <div class="botao operadores">+</div>
+    <div v-on:click="soma" class="botao operadores">+</div>
 
     <div v-on:click="JuntarNumeros('1')"  class="botao">1</div>
     <div v-on:click="JuntarNumeros('2')"  class="botao">2</div>
     <div v-on:click="JuntarNumeros('3')"  class="botao">3</div>
-    <div id="igual"  class="botao">=</div>
+    <div v-on:click="resultado" id="igual"  class="botao">=</div>
 
     <div v-on:click="JuntarNumeros('0')" class="botao">0</div>
     <div v-on:click="ponto"  class="botao">.</div>
@@ -57,6 +57,33 @@ export default {
     },
     porcentagem() {
       this.valorCorrente = `${parseFloat(this.valorCorrente) / 100}`;
+    },
+    setarValor() {
+      this.numeroAnterior = this.valorCorrente;
+      this.operadorClicado = true;
+    },
+    multiplicacao() {
+      this.operador = (num1, num2) => num1 * num2;
+      this.setarValor();
+    },
+    divisao() {
+      this.operador = (num1, num2) => num1 / num2;
+      this.setarValor();
+    },
+    subtracao() {
+      this.operador = (num1, num2) => num1 - num2;
+      this.setarValor();
+    },
+    soma() {
+      this.operador = (num1, num2) => num1 + num2;
+      this.setarValor();
+    },
+    resultado() {
+      this.valorCorrente = `${this.operador(
+        parseFloat(this.numeroAnterior),
+        parseFloat(this.valorCorrente),
+      )}`;
+      this.numeroAnterior = null;
     },
   },
 };
